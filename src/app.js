@@ -28,16 +28,28 @@ app.on('error', (err, ctx) => {
 });
 
 const router = new Router();
-router.get('/', (ctx, next) => {
-  // throw ctx.throw(400, 'bad request');
-  ctx.body = 'Hello World!';
+const dogRouter = new Router({
+  prefix: '/dogs'
 });
+const customerRouter = new Router({
+  prefix: '/customers'
+});
+
+require('./routes/roots') ({ router });
+require('./routes/dogs') ({ dogRouter });
+require('./routes/customers') ({ customerRouter });
 
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+app.use(dogRouter.routes());
+app.use(dogRouter.allowedMethods());
+
+app.use(customerRouter.routes());
+app.use(customerRouter.allowedMethods());
+
 const server = app.listen(3000);
-module.exports.app = server;
+module.exports = server;
 
 // this is it!
 //module.exports.handler = serverless(app);
