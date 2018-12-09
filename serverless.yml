@@ -1,0 +1,21 @@
+# serverless.yml
+
+service: minifarm-api
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-2
+
+functions:
+  app:
+    handler: src/app.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+  anotherApp:
+    handler: src/app.handler
+    events:
+      - http: ANY /another
+  
