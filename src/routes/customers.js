@@ -1,4 +1,5 @@
 const Router = require('koa-router');
+const koaBody = require('koa-body');
 const router = new Router({
     prefix: '/customers'
 });
@@ -8,7 +9,7 @@ router.get('/', async (ctx, next) => {
     // console.log(ctx);
 });
 
-router.post('/', async (ctx, next) => {
+router.post('/', koaBody(), async (ctx, next) => {
     ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
     ctx.status = 201;
     console.log(ctx.body);

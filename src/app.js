@@ -2,11 +2,9 @@ const serverless = require('serverless-http');
 const Koa = require('koa');
 const Router = require('koa-router');
 const logger = require('koa-logger');
-const koaBody = require('koa-body');
 const app = new Koa();
 
 app.use(logger());
-app.use(koaBody());
 
 // error handling
 app.use(async (ctx, next) => {
