@@ -2,9 +2,11 @@ const serverless = require('serverless-http');
 const Koa = require('koa');
 const Router = require('koa-router');
 const logger = require('koa-logger');
+const koaBody = require('koa-body');
 const app = new Koa();
 
 app.use(logger());
+app.use(koaBody());
 
 // error handling
 app.use(async (ctx, next) => {
@@ -27,20 +29,12 @@ app.on('error', (err, ctx) => {
   console.log('Handle error: ' + err.message);
 });
 
-const router = new Router();
-const dogRouter = new Router({
-  prefix: '/dogs'
-});
-const customerRouter = new Router({
-  prefix: '/customers'
-});
+const rootRouter = require('./routes/roots');
+const dogRouter = require('./routes/dogs');
+const customerRouter = require('./routes/customers');
 
-require('./routes/roots') ({ router });
-require('./routes/dogs') ({ dogRouter });
-require('./routes/customers') ({ customerRouter });
-
-app.use(router.routes());
-app.use(router.allowedMethods());
+app.use(rootRouter.routes());
+app.use(rootRouter.allowedMethods());
 
 app.use(dogRouter.routes());
 app.use(dogRouter.allowedMethods());
@@ -48,7 +42,7 @@ app.use(dogRouter.allowedMethods());
 app.use(customerRouter.routes());
 app.use(customerRouter.allowedMethods());
 
-const server = app.listen(3000);
+const server = app.listen(3000, () => console.log('server listening on port: 30000'));
 module.exports = server;
 
 // this is it!

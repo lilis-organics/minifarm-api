@@ -12,7 +12,9 @@
   "author": "Yanfeng Tian",
   "license": "apache-2.0",
   "dependencies": {
+    "boom": "^7.3.0",
     "koa": "^2.6.2",
+    "koa-body": "^4.0.4",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "serverless-http": "^1.8.0",
