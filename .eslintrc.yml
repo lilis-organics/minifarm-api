@@ -1,0 +1,15 @@
+extends: 
+  - standard
+  - prettier
+  - prettier/standard
+  - plugin:jest/recommended
+plugins: 
+  - jest
+  - prettier
+  - standard
+env:
+  jest/globals: true
+rules:
+  semi: off
+  prettier/prettier: error
+  

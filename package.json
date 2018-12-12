@@ -5,8 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --watchAll",
+    "cover": "npm run test -- --coverage",
     "debug": "nodemon --inspect ./src/app.js",
-    "dev": "nodemon ./src/app.js"
+    "dev": "nodemon ./src/app.js",
+    "lint": "eslint --fix ./src ./test --color && prettier --write \"src/**/*.js\"",
+    "prettier-watch": "onchange 'src/**/*.js' -- prettier --write {{changed}}"
   },
   "keywords": [],
   "author": "Yanfeng Tian",
@@ -21,8 +24,39 @@
     "superagent": "^4.0.0"
   },
   "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-prettier-standard": "^2.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.2.0",
     "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
     "nodemon": "^1.18.7",
+    "onchange": "^5.2.0",
+    "prettier": "^1.15.3",
+    "standard": "^12.0.1",
     "supertest": "^3.3.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

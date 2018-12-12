@@ -9,6 +9,9 @@ APIs for minifarm
 * run on debug mode
 * use koa-body to support multipart, urlencoded and json request bodies
 * use boom for HTTP-friendly error objects
+* eslint with standard for code qualities ([![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com))
+* prettier for code formatter 
+
 
 
 
