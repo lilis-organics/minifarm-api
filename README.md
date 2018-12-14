@@ -11,6 +11,12 @@ APIs for minifarm
 * use boom for HTTP-friendly error objects
 * eslint with standard for code qualities ([![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com))
 * prettier for code formatter 
+* [serverless-webpack](https://github.com/serverless-heaven/serverless-webpack) to bundle lambda with webpack
+  * build to dist foler: sls webpack
+  * package to .serverless folder (zip): ```sls package```
+  * run offline: ```sls offline```(the default "Watching for changes" doesn't work well)
+  * deploy to aws: ```sls deploy```
+
 
 
 
