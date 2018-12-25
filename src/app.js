@@ -1,6 +1,11 @@
-const serverless = require('serverless-http');
-const Koa = require('koa');
-const logger = require('koa-logger');
+import serverless from 'serverless-http';
+import Koa from 'koa';
+import logger from 'koa-logger';
+
+import rootRouter from './routes/roots';
+import dogRouter from './routes/dogs';
+import customerRouter from './routes/customers';
+
 const app = new Koa();
 
 app.use(logger());
@@ -25,10 +30,6 @@ app.on('error', (err, ctx) => {
    */
   console.log('Handle error: ' + err.message);
 });
-
-const rootRouter = require('./routes/roots');
-const dogRouter = require('./routes/dogs');
-const customerRouter = require('./routes/customers');
 
 app.use(rootRouter.routes());
 app.use(rootRouter.allowedMethods());

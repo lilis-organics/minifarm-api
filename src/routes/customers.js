@@ -1,5 +1,6 @@
-const Router = require('koa-router');
-const koaBody = require('koa-body');
+import Router from 'koa-router';
+import koaBody from 'koa-body';
+
 const router = new Router({
   prefix: '/customers'
 });

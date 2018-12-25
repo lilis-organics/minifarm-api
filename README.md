@@ -16,6 +16,8 @@ APIs for minifarm
   * package to .serverless folder (zip): ```sls package```
   * run offline: ```sls offline```(the default "Watching for changes" doesn't work well)
   * deploy to aws: ```sls deploy```
+* use babel to add support to ES6/ES7 javascript
+
 
 
 

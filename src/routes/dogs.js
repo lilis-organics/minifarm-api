@@ -1,6 +1,7 @@
 // this is just an example
-const request = require('superagent');
-const Router = require('koa-router');
+import request from 'superagent';
+import Router from 'koa-router';
+
 const router = new Router({
   prefix: '/dogs'
 });
