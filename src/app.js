@@ -6,7 +6,13 @@ import rootRouter from './routes/roots';
 import dogRouter from './routes/dogs';
 import customerRouter from './routes/customers';
 
+import getDb from './db';
+
 const app = new Koa();
+
+getDb().then(db => {
+  app.context.db = db;
+});
 
 app.use(logger());
 

@@ -14,8 +14,9 @@
     "//2": "npm run dev works but has error",
     "server": "nodemon ./src/app.js",
     "lint": "eslint --fix ./src ./test --color && prettier --write \"src/**/*.js\"",
+    "lint-check": "eslint --print-config ./src | eslint-config-prettier-check",
     "prettier-watch": "onchange 'src/**/*.js' -- prettier --write {{changed}}",
-    "babel": "babel-node ./src/app.js"
+    "babel-run": "babel-node ./src/app.js"
   },
   "keywords": [],
   "author": "Yanfeng Tian",
@@ -27,6 +28,8 @@
     "koa-body": "^4.0.4",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "massive": "^5.7.2",
+    "pg-monitor": "^1.1.0",
     "serverless-http": "^1.8.0",
     "source-map-support": "^0.5.9",
     "superagent": "^4.0.0"
