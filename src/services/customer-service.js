@@ -18,8 +18,13 @@ export default class CustomerService {
     return doc;
   }
 
-  async change(data) {
-    let doc = await this.db.customers.saveDoc(data);
+  async change(id, data) {
+    let doc = await this.db.customers.findDoc(id);
+
+    if (doc) {
+      Object.assign(doc, data);
+      doc = await this.db.customers.saveDoc(data);
+    }
     return doc;
   }
 

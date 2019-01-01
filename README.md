@@ -18,8 +18,8 @@ APIs for minifarm
   * deploy to aws: ```sls deploy```
 * use babel to add support to ES6/ES7 javascript
 * introduce massivejs for postgres database access (may try Objection + Knex in the future)
-* TODO: move more logic to service, coputed columns (e.g. full name), full text search, data schema and validation, environmet variables
-* TODO: fix unit tests
+* TODO: coputed columns (e.g. full name), full text search, data schema and validation, environmet variables
+* TODO: fix unit tests, complete postman test scripts
 
 
 

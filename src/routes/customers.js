@@ -21,16 +21,10 @@ router.post('/', koaBody(), async (ctx, next) => {
 });
 
 router.put('/:id', koaBody(), async (ctx, next) => {
-  let customerService = new CustomerService(ctx.db);
   let id = ctx.params.id;
   let data = ctx.request.body;
 
-  let doc = await customerService.get(id);
-
-  if (doc) {
-    Object.assign(doc, data);
-    ctx.body = await new CustomerService(ctx.db).change(doc);
-  }
+  ctx.body = await new CustomerService(ctx.db).change(id, data);
 });
 
 module.exports = router;
