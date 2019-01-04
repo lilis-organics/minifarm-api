@@ -5,7 +5,7 @@ APIs for minifarm
 * koa for rest api (router, logger, error handling)
 * jest for unit testing
 * superagent as HTTP client (axios )
-* introduced multiple routers for modularity
+* introduce multiple routers for modularity
 * run on debug mode
 * use koa-body to support multipart, urlencoded and json request bodies
 * use boom for HTTP-friendly error objects
@@ -18,6 +18,8 @@ APIs for minifarm
   * deploy to aws: ```sls deploy```
 * use babel to add support to ES6/ES7 javascript
 * introduce massivejs for postgres database access (may try Objection + Knex in the future)
+* introduce ajv for json schema validation (joi is a good choice as well but it's not serializable; schm is another good choice, but it's not follow a spec, has limitted features, and not that popular)
+* TODO: use automatic way to add routers under routes folder to kao app
 * TODO: coputed columns (e.g. full name), full text search, data schema and validation, environmet variables
 * TODO: fix unit tests, complete postman test scripts
 

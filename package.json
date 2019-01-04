@@ -22,6 +22,7 @@
   "author": "Yanfeng Tian",
   "license": "apache-2.0",
   "dependencies": {
+    "ajv": "^6.6.2",
     "babel-runtime": "^6.26.0",
     "boom": "^7.3.0",
     "koa": "^2.6.2",
