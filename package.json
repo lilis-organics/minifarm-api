@@ -27,6 +27,7 @@
     "boom": "^7.3.0",
     "koa": "^2.6.2",
     "koa-body": "^4.0.4",
+    "koa-combine-routers": "^4.0.2",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "massive": "^5.7.2",

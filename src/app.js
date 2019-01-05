@@ -1,11 +1,7 @@
 import serverless from 'serverless-http';
 import Koa from 'koa';
 import logger from 'koa-logger';
-
-import rootRouter from './routes/roots';
-import dogRouter from './routes/dogs';
-import customerRouter from './routes/customers';
-
+import router from './routes/all-routes';
 import getDb from './db';
 
 const app = new Koa();
@@ -37,14 +33,8 @@ app.on('error', (err, ctx) => {
   console.log('Handle error: ' + err.message);
 });
 
-app.use(rootRouter.routes());
-app.use(rootRouter.allowedMethods());
-
-app.use(dogRouter.routes());
-app.use(dogRouter.allowedMethods());
-
-app.use(customerRouter.routes());
-app.use(customerRouter.allowedMethods());
+// add all the routes with allowed methods
+app.use(router());
 
 const server = app.listen(3000, () =>
   console.log('server listening on port: 30000')
