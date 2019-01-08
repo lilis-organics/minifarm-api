@@ -11,6 +11,8 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: us-east-2
+  memorySize: 128
+  timeout: 6
 
 custom:
   webpack:
@@ -27,8 +29,4 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
-  anotherApp:
-    handler: src/app.handler
-    events:
-      - http: ANY /another
   

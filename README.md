@@ -19,7 +19,8 @@ APIs for minifarm
 * use babel to add support to ES6/ES7 javascript
 * introduce massivejs for postgres database access (may try Objection + Knex in the future)
 * introduce ajv for json schema validation (joi is a good choice as well but it's not serializable; schm is another good choice, but it's not follow a spec, has limitted features, and not that popular)
-* use koa-combine-routers to combine routes so the kao app can simply add the combined routes
+* use koa-combine-routers to combine routes so the kao app simply adds the combined routes
+* make massive-js work with aws lambda (NOTE: postgres on aws should allow lambda access by using VPC/database security group)
 * TODO: environmet variables
 * TODO: coputed columns (e.g. full name), full text search, data schema and validation
 * TODO: fix unit tests, complete postman test scripts

@@ -2,15 +2,9 @@ import serverless from 'serverless-http';
 import Koa from 'koa';
 import logger from 'koa-logger';
 import router from './routes/all-routes';
-import getDb from './db';
+import Database from './db';
 
 const app = new Koa();
-
-getDb().then(db => {
-  app.context.db = db;
-});
-
-app.use(logger());
 
 // error handling
 app.use(async (ctx, next) => {
@@ -33,13 +27,24 @@ app.on('error', (err, ctx) => {
   console.log('Handle error: ' + err.message);
 });
 
+app.use(logger());
+
+// prepare database and initialize in koa middleware
+const instance = new Database();
+app.context.instance = instance;
+
+app.use(async (ctx, next) => {
+  ctx.db = await ctx.instance.getDb();
+  await next();
+});
+
 // add all the routes with allowed methods
 app.use(router());
 
-const server = app.listen(3000, () =>
-  console.log('server listening on port: 30000')
-);
-module.exports = server;
+// TODO: call this based on env variable
+// this is only for running local koa erver
+app.listen(3000, () => console.log('server listening on port: 30000'));
+// module.exports = server;
 
 // this is it!
 // module.exports.handler = serverless(app);

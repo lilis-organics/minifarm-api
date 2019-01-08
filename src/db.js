@@ -1,20 +1,23 @@
 import massive from 'massive';
-import monitor from 'pg-monitor';
+// import monitor from 'pg-monitor';
 
-let db;
+class Database {
+  async getDb() {
+    if (this.db) {
+      console.log('return db directly');
+      return this.db;
+    }
 
-export default function() {
-  if (db) {
-    return db;
+    console.log('db creating...');
+    this.db = await massive(
+      'postgres://postgres:123456@localhost:5432/minifarm'
+    );
+
+    // monitor.attach(this.db);
+
+    console.log('db created.');
+    return this.db;
   }
-
-  return massive('postgres://postgres:123456@localhost:5432/minifarm', {
-    scripts: './db',
-    documentPkType: 'uuid',
-    uuidversion: 'v4'
-  }).then(instance => {
-    db = instance;
-    monitor.attach(db.driverConfig);
-    return Promise.resolve(db);
-  });
 }
+
+export default Database;
