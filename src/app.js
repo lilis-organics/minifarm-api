@@ -41,9 +41,8 @@ app.use(async (ctx, next) => {
 // add all the routes with allowed methods
 app.use(router());
 
-// TODO: call this based on env variable
 // this is only for running local koa erver
-app.listen(3000, () => console.log('server listening on port: 30000'));
+// app.listen(3000, () => console.log('server listening on port: 30000'));
 // module.exports = server;
 
 // this is it!

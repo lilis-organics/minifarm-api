@@ -9,10 +9,13 @@ plugins:
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: ${opt:stage, 'local'}
   region: us-east-2
-  memorySize: 128
+  memorySize: ${file(./config/${self:provider.stage}.yml):provider.memory}
   timeout: 6
+  environment:
+    stage: ${self:provider.stage}
+    database: ${file(./config/${self:provider.stage}.yml):database}
 
 custom:
   webpack:
@@ -29,4 +32,5 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+
   

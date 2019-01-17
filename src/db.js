@@ -4,14 +4,12 @@ import massive from 'massive';
 class Database {
   async getDb() {
     if (this.db) {
-      console.log('return db directly');
+      // console.log('return db directly');
       return this.db;
     }
 
     console.log('db creating...');
-    this.db = await massive(
-      'postgres://postgres:123456@localhost:5432/minifarm'
-    );
+    this.db = await massive(process.env.database);
 
     // monitor.attach(this.db);
 
