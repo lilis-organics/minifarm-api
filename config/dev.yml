@@ -1,0 +1,3 @@
+database: ${ssm:minifarm.dev.database~true}
+provider:
+  memory: 128

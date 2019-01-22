@@ -9,7 +9,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: ${opt:stage, 'local'}
+  stage: ${opt:stage, 'local'} # can also use ${env:stage, 'local'}
   region: us-east-2
   memorySize: ${file(./config/${self:provider.stage}.yml):provider.memory}
   timeout: 6
