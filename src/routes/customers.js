@@ -7,10 +7,6 @@ const router = new Router({
   prefix: '/customers'
 });
 
-router.get('/test', async (ctx, next) => {
-  ctx.body = ctx.db.query('select 1');
-});
-
 router.get('/', async (ctx, next) => {
   ctx.body = await new CustomerService(ctx.db).find(ctx.query);
 });

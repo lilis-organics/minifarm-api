@@ -42,8 +42,12 @@ app.use(async (ctx, next) => {
 app.use(router());
 
 // this is only for running local koa erver
-// app.listen(3000, () => console.log('server listening on port: 30000'));
-// module.exports = server;
+if (process.env.stage === 'local') {
+  const server = app.listen(3000, () =>
+    console.log('server listening on port: 30000')
+  );
+  module.exports = server;
+}
 
 // this is it!
 // module.exports.handler = serverless(app);

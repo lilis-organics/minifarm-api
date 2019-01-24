@@ -5,6 +5,7 @@ service: minifarm-api
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-jest-plugin
 
 provider:
   name: aws
@@ -22,6 +23,11 @@ custom:
     webpackConfig: ./webpack.config.js
     includeModules: true
     packager: npm
+  jest:
+    # You can pass jest options here
+    # See details here: https://facebook.github.io/jest/docs/configuration.html
+    # For instance, uncomment next line to enable code coverage
+    # collectCoverage: true
 
 package:
   individually: true

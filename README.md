@@ -23,8 +23,9 @@ APIs for minifarm
 * make massive-js work with aws lambda (NOTE: postgres on aws should allow lambda access by using VPC/database security group)
 * use serverless variables to load different configurations based on stage: local, dev, staging, or production.
 * use AWS Systems Manager (SSM) Parameter Store to store encrypted parameters
-* TODO: coputed columns (e.g. full name), full text search, data schema and validation
-* TODO: fix unit tests, complete postman test scripts
+* use serverless-jest-plugin to use jest with serverless framework for unit testing
+* TODO: coputed columns (e.g. full name), full text search, data schema and validation, DTO valication
+* TODO: complete postman test scripts
 
 
 NOTE:
