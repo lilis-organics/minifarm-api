@@ -24,6 +24,9 @@ APIs for minifarm
 * use serverless variables to load different configurations based on stage: local, dev, staging, or production.
 * use AWS Systems Manager (SSM) Parameter Store to store encrypted parameters
 * use serverless-jest-plugin to use jest with serverless framework for unit testing
+  ```
+  sls invoke test [--stage stage] [--region region] [-f function]
+  ```
 * TODO: coputed columns (e.g. full name), full text search, data schema and validation, DTO valication
 * TODO: complete postman test scripts
 
