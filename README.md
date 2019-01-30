@@ -1,6 +1,14 @@
 # minifarm-api
 APIs for minifarm
+## Prepare
+* Install serverless
+  ```
+  npm install -g serverless
+  ```
+* Install PostgreSQL database in your local or use PostgreSQL RDS on aws
+* Run setup.sql on PostgreSQL database
 
+## Stack
 * serverless framework + aws
 * koa for rest api (router, logger, error handling)
 * jest for unit testing
@@ -29,6 +37,7 @@ APIs for minifarm
   ```
 * TODO: coputed columns (e.g. full name), full text search, data schema and validation, DTO valication
 * TODO: complete postman test scripts
+* TODO: sqitch for database management
 
 
 NOTE:
