@@ -1,5 +1,5 @@
 # minifarm-api
-APIs for minifarm
+APIs for minifarm v0.1
 ## Prepare
 * Install serverless
   ```
