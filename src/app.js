@@ -1,8 +1,10 @@
 import serverless from 'serverless-http';
 import Koa from 'koa';
 import logger from 'koa-logger';
-import router from './routes/all-routes';
-import Database from './db';
+import router from './routes/all-routes.js';
+import Database from './db.js';
+
+console.log('application starting...');
 
 const app = new Koa();
 
@@ -30,9 +32,8 @@ app.on('error', (err, ctx) => {
 app.use(logger());
 
 // prepare database and initialize in koa middleware
-const instance = new Database();
-app.context.instance = instance;
-
+const database = new Database().init();
+app.context.instance = database;
 app.use(async (ctx, next) => {
   ctx.db = await ctx.instance.getDb();
   await next();
@@ -41,19 +42,19 @@ app.use(async (ctx, next) => {
 // add all the routes with allowed methods
 app.use(router());
 
-// this is only for running local koa erver
-if (process.env.stage === 'local') {
-  const server = app.listen(3000, () =>
-    console.log('server listening on port: 30000')
-  );
-  module.exports = server;
-}
+// this is only for running local koa erver -- for running unit test
+// if (process.env.stage === 'local') {
+//   const server = app.listen(3000, () =>
+//     console.log('server listening on port: 30000')
+//   );
+//   module.exports = server;
+// }
 
-// this is it!
-// module.exports.handler = serverless(app);
+// serverless koa handler
+export const handler = async (event, context) =>
+  serverless(app)(event, context);
 
-// or as a promise
-const handler = serverless(app);
-module.exports.handler = async (event, context) => {
-  return handler(event, context);
-};
+// for running unit tests purpose
+// module.exports.handler = async (event, context) => serverless(app)(event, context);
+
+console.log('application started');

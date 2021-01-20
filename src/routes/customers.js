@@ -1,10 +1,10 @@
 import Router from 'koa-router';
 import koaBody from 'koa-body';
-import CustomerService from '../services/customer-service';
-import customerSchema from '../schemas/customer-schema';
+import CustomerService from '../services/customer-service.js';
+import { getCustomerSchema } from '../schemas/customer-schema.js';
 
 const router = new Router({
-  prefix: '/customers'
+  prefix: '/customers',
 });
 
 router.get('/', async (ctx, next) => {
@@ -12,13 +12,14 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/:id', async (ctx, next) => {
-  let id = ctx.params.id;
+  const id = ctx.params.id;
   ctx.body = await new CustomerService(ctx.db).get(id);
 });
 
 router.post('/', koaBody(), async (ctx, next) => {
-  let data = ctx.request.body;
-  let valid = customerSchema(data);
+  const data = ctx.request.body;
+  const customerSchema = getCustomerSchema();
+  const valid = customerSchema(data);
   if (!valid) {
     ctx.throw(400, JSON.stringify(customerSchema.errors));
   }
@@ -27,10 +28,11 @@ router.post('/', koaBody(), async (ctx, next) => {
 });
 
 router.put('/:id', koaBody(), async (ctx, next) => {
-  let id = ctx.params.id;
-  let data = ctx.request.body;
+  const id = ctx.params.id;
+  const data = ctx.request.body;
+  const customerSchema = getCustomerSchema();
 
-  let valid = customerSchema(data);
+  const valid = customerSchema(data);
   if (!valid) {
     ctx.throw(400, JSON.stringify(customerSchema.errors));
   }
@@ -38,4 +40,4 @@ router.put('/:id', koaBody(), async (ctx, next) => {
   ctx.body = await new CustomerService(ctx.db).change(id, data);
 });
 
-module.exports = router;
+export default router;

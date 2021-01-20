@@ -3,18 +3,18 @@ import request from 'superagent';
 import Router from 'koa-router';
 
 const router = new Router({
-  prefix: '/dogs'
+  prefix: '/dogs',
 });
 
 router.get('/', async (ctx, next) => {
   await request
     .get('https://dog.ceo/api/breeds/list/all')
-    .then(res => {
+    .then((res) => {
       ctx.body = res.body;
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 });
 
-module.exports = router;
+export default router;

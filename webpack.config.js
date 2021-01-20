@@ -8,11 +8,11 @@ module.exports = {
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   optimization: {
     // whether to minimize the code
-    minimize: true
+    minimize: true,
   },
   performance: {
     // turn off size warnings for entry points
-    hints: false
+    hints: false,
   },
   devtool: 'nosources-source-map',
   externals: [nodeExternals()],
@@ -23,16 +23,16 @@ module.exports = {
         exclude: [/node_modules/, /test/],
         use: [
           {
-            loader: 'babel-loader'
-          }
-        ]
-      }
-    ]
+            loader: 'babel-loader',
+          },
+        ],
+      },
+    ],
   },
   output: {
-    libraryTarget: 'commonjs',
-    path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, '.webpack'),
     filename: '[name].js',
-    sourceMapFilename: '[file].map'
-  }
+    sourceMapFilename: '[file].map',
+  },
 };

@@ -1,3 +1,4 @@
+-- create database first
 CREATE DATABASE minifarm
     WITH 
     OWNER = postgres
@@ -7,4 +8,5 @@ CREATE DATABASE minifarm
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
+-- then run this against the created database to enable uuid
 CREATE EXTENSION "uuid-ossp";

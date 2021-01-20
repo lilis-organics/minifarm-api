@@ -7,4 +7,4 @@ router.get('/', async (ctx, next) => {
   // console.log(ctx);
 });
 
-module.exports = router;
+export default router;

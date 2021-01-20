@@ -8,6 +8,10 @@ APIs for minifarm v0.1
 * Install PostgreSQL database in your local or use PostgreSQL RDS on aws
 * Run setup.sql on PostgreSQL database
 
+## references
+* https://github.com/serverless-heaven/serverless-webpack
+
+
 ## Stack
 * serverless framework + aws
 * koa for rest api (router, logger, error handling)
