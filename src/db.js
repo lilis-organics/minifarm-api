@@ -15,17 +15,19 @@ class Database {
 
     console.log('db initializing...');
 
-    const cn = {
+    const conn = {
       connectionString: process.env.database,
       // poolSize: 10
     };
 
-    this.db = massive(cn, {
+    const instance = massive(conn, {
       documentPkType: 'uuid',
       uuidVersion: 'v1mc',
     });
 
-    // monitor.attach(this.db);
+    // monitor.attach(instance);
+
+    this.db = instance;
 
     console.log('db initialized');
     return this.db;

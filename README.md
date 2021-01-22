@@ -6,11 +6,19 @@ APIs for minifarm v0.1
   npm install -g serverless
   ```
 * Install PostgreSQL database in your local or use PostgreSQL RDS on aws
-* Run setup.sql on PostgreSQL database
+* Run script on setup.sql to create a database
+* Run script on setup.sql to enable uuid on the database
 
 ## references
 * https://github.com/serverless-heaven/serverless-webpack
+* https://massivejs.org
 
+## TODO
+* massivejs monitoring queries doens't work: https://massivejs.org/docs/connecting
+* how to debug serverless offline
+* check if the db is one in the server environment - also how to avoid the warnings in local with sls offline
+* how to make jest unit test work with serverless offline
+* add config for stage and prod
 
 ## Stack
 * serverless framework + aws

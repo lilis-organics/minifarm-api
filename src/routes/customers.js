@@ -1,6 +1,5 @@
 import Router from 'koa-router';
 import koaBody from 'koa-body';
-import CustomerService from '../services/customer-service.js';
 import { getCustomerSchema } from '../schemas/customer-schema.js';
 
 const router = new Router({
@@ -8,12 +7,12 @@ const router = new Router({
 });
 
 router.get('/', async (ctx, next) => {
-  ctx.body = await new CustomerService(ctx.db).find(ctx.query);
+  ctx.body = await ctx.db.customers.findDoc(ctx.query);
 });
 
 router.get('/:id', async (ctx, next) => {
   const id = ctx.params.id;
-  ctx.body = await new CustomerService(ctx.db).get(id);
+  ctx.body = await ctx.db.customers.findDoc(id);
 });
 
 router.post('/', koaBody(), async (ctx, next) => {
@@ -24,7 +23,7 @@ router.post('/', koaBody(), async (ctx, next) => {
     ctx.throw(400, JSON.stringify(customerSchema.errors));
   }
 
-  ctx.body = await new CustomerService(ctx.db).create(data);
+  ctx.body = await ctx.db.saveDoc('customers', data);
 });
 
 router.put('/:id', koaBody(), async (ctx, next) => {
@@ -37,7 +36,7 @@ router.put('/:id', koaBody(), async (ctx, next) => {
     ctx.throw(400, JSON.stringify(customerSchema.errors));
   }
 
-  ctx.body = await new CustomerService(ctx.db).change(id, data);
+  ctx.body = await ctx.db.customers.updateDoc(id, data);
 });
 
 export default router;
