@@ -12,8 +12,14 @@ APIs for minifarm v0.1
 ## references
 * https://github.com/serverless-heaven/serverless-webpack
 * https://massivejs.org
+* Others:
+  - https://github.com/AnomalyInnovations/serverless-bundle
 
 ## TODO
+* required node_modules cannot be copied automatically to .webpack and packaged into serverless zip
+* find a way to optimize serverless package size and packaing policy
+* api doc/swagger and validator
+* automatically deploy api gateway
 * massivejs monitoring queries doens't work: https://massivejs.org/docs/connecting
 * how to debug serverless offline
 * check if the db is one in the server environment - also how to avoid the warnings in local with sls offline

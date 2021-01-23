@@ -21,7 +21,28 @@ provider:
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
-    includeModules: true
+    includeModules:
+      forceExclude:
+        - pg-native
+      forceInclude:
+        - massive
+        # - babel/runtime-corejs2
+        - ajv
+        - ajv-formats
+        - boom
+        - esm
+        - koa
+        - koa-body
+        - koa-combine-routers
+        - koa-logger
+        - koa-router
+        - massive
+        - pg
+        - pg-monitor
+        - pg-promise
+        - serverless-http
+        - source-map-support
+        - superagent
     packager: npm
   jest:
     # You can pass jest options here
@@ -30,7 +51,7 @@ custom:
     # collectCoverage: true
 
 package:
-  individually: true
+  # individually: true
 
 functions:
   app:
