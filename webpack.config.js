@@ -20,7 +20,7 @@ module.exports = {
   externals: [
     nodeExternals({
       // must include this, otherwise webpack cannot include node_modules in package
-      // modulesDir: path.resolve(__dirname, './node_modules'),
+      // modulesDir: path.resolve(__dirname, '../node_modules'),
     }),
   ],
   plugins: [
