@@ -29,11 +29,9 @@
   "author": "Yanfeng Tian",
   "license": "apache-2.0",
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.0.0",
     "ajv": "^7.0.3",
     "ajv-formats": "^1.5.1",
     "boom": "^7.3.0",
-    "esm": "^3.2.25",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
     "koa-combine-routers": "^4.0.2",
@@ -44,10 +42,11 @@
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.9.1",
     "serverless-http": "^2.6.1",
-    "source-map-support": "^0.5.19",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "source-map-support": "^0.5.19"
   },
   "devDependencies": {
+    "@babel/runtime-corejs2": "^7.0.0",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.0.0",

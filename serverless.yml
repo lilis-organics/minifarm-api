@@ -25,12 +25,9 @@ custom:
       forceExclude:
         - pg-native
       forceInclude:
-        - massive
-        # - babel/runtime-corejs2
         - ajv
         - ajv-formats
         - boom
-        - esm
         - koa
         - koa-body
         - koa-combine-routers
