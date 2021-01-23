@@ -13,7 +13,6 @@
     "deploy:prod": "sls deploy --stage:prod",
     "clean": "rimraf .webpack .serverless",
     "deep-clean": "rimraf node_modules package-lock.json .webpack .serverless && npm install",
-    
     "//build": "babel ./src --out-dir dist",
     "//1": "TODO: npm run xxx does't work well due the process.env.stage cannot be set to local",
     "//start:node": "nodemon src/app.js --exec babel-node --presets @babel/preset-env",
@@ -73,7 +72,6 @@
     "lint-staged": "^10.5.3",
     "nodemon": "^2.0.7",
     "onchange": "^7.1.0",
-    "pg-native": "^3.0.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "semistandard": "^16.0.0",

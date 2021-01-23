@@ -1,13 +1,14 @@
 # minifarm-api
 APIs for minifarm v0.1
+
 ## Prepare
 * Install serverless
   ```
   npm install -g serverless
   ```
 * Install PostgreSQL database in your local or use PostgreSQL RDS on aws
-* Run script on setup.sql to create a database
-* Run script on setup.sql to enable uuid on the database
+* Run script in config/setup.sql to create a database
+* Run script in config/setup.sql to enable uuid on the selected database
 
 ## references
 * https://github.com/serverless-heaven/serverless-webpack
