@@ -1,7 +1,7 @@
 const path = require('path');
 const slsw = require('serverless-webpack');
 const nodeExternals = require('webpack-node-externals');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 // const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -20,14 +20,14 @@ module.exports = {
   externals: [
     nodeExternals({
       // must include this, otherwise webpack cannot include node_modules in package
-      modulesDir: path.resolve(__dirname, './node_modules'),
+      // modulesDir: path.resolve(__dirname, './node_modules'),
     }),
   ],
   plugins: [
     // must install pg-native into package.json, otherwise webpack cannot include node_modules in package
     // this plug-in is not needed
-    new webpack.IgnorePlugin(/^pg-native$/),
-    new webpack.IgnorePlugin(/^massive$/),
+    // new webpack.IgnorePlugin(/^pg-native$/),
+    // new webpack.IgnorePlugin(/^massive$/),
     // new CopyPlugin({
     //   patterns: [
     //     { from: 'node_modules/massive/lib/scripts', to: 'scripts' }
